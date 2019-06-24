@@ -1,24 +1,18 @@
-import _ from 'lodash'; //用来引入lodash
-import './index.css';
-import Icon from './icon.png';
-import Data from './data.xml';
+import _ from 'lodash';
+import printMe from './print';
 
-let component = () => {
-  let element = document.createElement("div");
+  function component() {
+    var element = document.createElement('div');
+   var btn = document.createElement('button');
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
-  // 添加图片到我们已经在的div中
-  let myIcon = new Image();
-  myIcon.src =Icon;
+   btn.innerHTML = '点击这里，然后查看 console！';
+  btn.onclick = printMe;
 
-  element.appendChild(myIcon);
+   element.appendChild(btn);
 
-  console.log(Data);
+    return element;
+  }
 
-
-  return element;
-};
-
-document.body.appendChild(component());
+  document.body.appendChild(component());
