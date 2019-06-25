@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 
 module.exports = {
-  mode: "development",
   entry: {
     app: "./src/index.js"
   },
@@ -27,8 +26,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    publicPath:'/'
-  }
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+   mode: 'development',
+ optimization: {
+   usedExports: true
+ }
 };
